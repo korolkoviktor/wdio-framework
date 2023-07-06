@@ -31,6 +31,7 @@ exports.config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
+        // './tests/test.spec.js'
     ],
     //
     // ============
@@ -57,7 +58,8 @@ exports.config = {
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-    }],
+    }, 
+    {browserName: 'firefox'}],
     //
     // ===================
     // Test Configurations
@@ -127,7 +129,12 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+        // {
+        // showPreface: false,
+        // },
+    ],
 
     
     //
