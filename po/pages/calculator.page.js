@@ -9,7 +9,7 @@ class CalculatorPage extends MainPage {
         this.estimate=new CalcEstimate;
     }
     async switchtoParentFrame() {
-        await this.mainform.parentFrameForm.waitForDisplayed();
+        await this.mainform.parentFrameForm.waitForDisplayed({ timeout: 3000 });
         const parentframe=await browser.findElement('css selector', this.mainform.parentFrame);
         return browser.switchToFrame(parentframe);
     }    

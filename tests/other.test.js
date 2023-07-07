@@ -1,24 +1,22 @@
 const {page}=require('../po');
 const expectedresult=require('../testdata/estimate.data');
+const calculatorUrl=require('../testdata/calculator.data');
 
 describe('Testsuit: "Hurt me plenty"', ()=> {
-    // before(()=> {
-    //     browser.url('https://cloud.google.com/');
-    //     page('main').open();
-    //     browser.maximizeWindow(); 
-    // })
-    it.skip('Test1:Check correct search result google clouds', async ()=>{               
+    before(()=> {        
+        page('main').open('https://cloud.google.com/');
+        browser.maximizeWindow(); 
+    })
+    it ('Test1:Check correct search result google clouds', async ()=>{               
         await page('main').header.searchBox.click();          
         await page('main').header.searchBox.setValue('Google Cloud Platform Pricing Calculator');        
         await page('main').header.popupSearchMenu.waitForDisplayed();        
         await page('main').header.popupSearchMenu.click();        
-        await page('search').searchresult.firstSearchresultLink.waitForDisplayed();       
+        await page('search').searchresult.firstSearchresultLink.waitForDisplayed({ timeout: 5000 });       
         await page('search').searchresult.firstSearchresultLink.click();               
-        expect(await browser.getUrl()).toEqual("https://cloud.google.com/products/calculator");        
+        expect(await browser.getUrl()).toEqual(calculatorUrl);        
     })
-    it.skip('Test2:Check calculator', async ()=>{       
-        await browser.url('https://cloud.google.com/products/calculator');
-        await browser.maximizeWindow();         
+    it ('Test2:Check calculator', async ()=>{             
         await page('calculator').switchtoParentFrame();
         await page('calculator').switchtoChildFrame();        
         await page('calculator').mainform.productTypeComputerEngine.click(); //chose Computer Engine form

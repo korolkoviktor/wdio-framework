@@ -31,7 +31,6 @@ exports.config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
-        // './tests/test.spec.js'
     ],
     //
     // ============
@@ -58,8 +57,9 @@ exports.config = {
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-    }, 
-    {browserName: 'firefox'}],
+    },
+    {browserName: 'firefox'}
+    ],
     //
     // ===================
     // Test Configurations
@@ -107,7 +107,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['chromedriver','geckodriver'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -130,12 +130,14 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [
-        'spec',
-        // {
-        // showPreface: false,
-        // },
+        [
+        "spec",
+        {
+          showPreface: false,
+        },
+      ]
     ],
-
+    
     
     //
     // Options to be passed to Mocha.
@@ -242,13 +244,8 @@ exports.config = {
         if (error) {
             const date=new Date().toISOString().replace(/:/g,'-').slice(0,19);
             const filename=test.title.slice(0,5)+'_'+date +'.png';           
-            const scrshotpath='./reports/screenshots/';                     
-            if (!fs.existsSync(scrshotpath)) {
-                fs.mkdirSync(scrshotpath, {
-                    recursive: true,
-                  })};
-            await browser.saveScreenshot(scrshotpath+filename);
-        
+            const scrshotpath='./reports/screenshots/';             
+            await browser.saveScreenshot(scrshotpath+filename);        
         }
     },
 

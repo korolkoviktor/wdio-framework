@@ -1,25 +1,22 @@
 const {page}=require('../po');
-const expectedresult=require('../testdata/estimate.data');
-
+const emailresult=require('../testdata/emailresult.data');
+const calculatorUrl=require('../testdata/calculator.data');
 
 describe('Testsuit: "Hardcore"', ()=> {
-    // before(()=> {
-    //     browser.url('https://cloud.google.com/');
-    //     page('main').open();
-    //     browser.maximizeWindow(); 
-    // })
-    it.skip ('Test1:Check correct search result google clouds', async ()=>{               
+    before(()=> {        
+        page('main').open('https://cloud.google.com/');
+        browser.maximizeWindow(); 
+    })
+    it ('Test1:Check correct search result', async ()=>{               
         await page('main').header.searchBox.click();          
         await page('main').header.searchBox.setValue('Google Cloud Platform Pricing Calculator');        
         await page('main').header.popupSearchMenu.waitForDisplayed();        
         await page('main').header.popupSearchMenu.click();        
         await page('search').searchresult.firstSearchresultLink.waitForDisplayed();       
         await page('search').searchresult.firstSearchresultLink.click();               
-        expect(await browser.getUrl()).toEqual("https://cloud.google.com/products/calculator");        
+        expect(await browser.getUrl()).toEqual(calculatorUrl);        
     })
-    it.skip ('Test2:Check calculator from result received by email', async ()=>{       
-        await browser.url('https://cloud.google.com/products/calculator');
-        await browser.maximizeWindow();         
+    it ('Test2:Check calculating result received by email', async ()=>{           
         await page('calculator').switchtoParentFrame();
         await page('calculator').switchtoChildFrame();        
         await page('calculator').mainform.productTypeComputerEngine.click(); //chose Computer Engine form
@@ -55,7 +52,7 @@ describe('Testsuit: "Hardcore"', ()=> {
         await page('calculator').mainform.committedUsage.click();
         await page('calculator').mainform.addToEstimateBtn.click();          
         await browser.newWindow('https://dropmail.me');        
-        await page('temporary').email.copyToClipboard.waitForDisplayed();
+        await page('temporary').email.copyToClipboard.waitForDisplayed({ timeout: 3000 });
         await page('temporary').email.copyToClipboard.click()       
         await browser.switchWindow('google.com');
         await page('calculator').switchtoParentFrame();
@@ -67,7 +64,7 @@ describe('Testsuit: "Hardcore"', ()=> {
         await page('calculator').estimate.sendEmailBtn.isClickable();        
         await page('calculator').estimate.sendEmailBtn.click();
         await browser.switchWindow('dropmail.me');
-        await page('temporary').email.inboxMessage.waitForDisplayed();        
-        expect (await page('temporary').email.inboxMessage.getText()).toContain('Total *:\n1,081.20\n');        
+        await page('temporary').email.inboxMessage.waitForDisplayed({ timeout: 10000 });        
+        expect (await page('temporary').email.inboxMessage.getText()).toContain(emailresult);        
     })
 })
