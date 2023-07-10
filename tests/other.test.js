@@ -7,7 +7,7 @@ describe('Testsuit: "Hurt me plenty"', ()=> {
         page('main').open('https://cloud.google.com/');
         browser.maximizeWindow(); 
     })
-    it.only ('Test1:Check correct search result google clouds', async ()=>{               
+    it ('Test1:Check correct search result google clouds', async ()=>{               
         await page('main').header.searchBox.click();          
         await page('main').header.searchBox.setValue('Google Cloud Platform Pricing Calculator');        
         await page('main').header.popupSearchMenu.waitForDisplayed();        
@@ -16,7 +16,7 @@ describe('Testsuit: "Hurt me plenty"', ()=> {
         await page('search').searchresult.firstSearchresultLink.click();               
         expect(await browser.getUrl()).toEqual(calculatorUrl);        
     })
-    it.skip ('Test2:Check calculator', async ()=>{             
+    it ('Test2:Check calculator', async ()=>{             
         await page('calculator').switchtoParentFrame();
         await page('calculator').switchtoChildFrame();        
         await page('calculator').mainform.productTypeComputerEngine.click(); //chose Computer Engine form
