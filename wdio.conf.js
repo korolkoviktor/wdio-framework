@@ -246,7 +246,7 @@ exports.config = {
             const date=new Date().toLocaleString('en-GB').replace(/[:,/]/g,'-').slice(0,20);            
             const filename=test.title.slice(0,5)+'_'+date +'.png';           
             const scrshotpath='./reports/screenshots/';             
-            await browser.saveScreenshot(scrshotpath+filename);        
+            return await browser.saveScreenshot(scrshotpath+filename);        
         }
     },
 
