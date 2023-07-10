@@ -57,8 +57,7 @@ exports.config = {
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-    },
-    {browserName: 'firefox'}
+    }
     ],
     //
     // ===================
@@ -107,7 +106,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver','geckodriver'],
+    services: ['chromedriver'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -242,7 +241,7 @@ exports.config = {
      */
     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
-            const date=new Date().toISOString().replace(/:/g,'-').slice(0,19);
+            const date=new Date().toLocaleString('en-GB').replace(/[:,/]/g,'-').slice(0,20); 
             const filename=test.title.slice(0,5)+'_'+date +'.png';           
             const scrshotpath='./reports/screenshots/';             
             await browser.saveScreenshot(scrshotpath+filename);        
