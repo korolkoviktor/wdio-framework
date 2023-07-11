@@ -240,13 +240,13 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
             // const date=new Date().toISOString().replace(/:/g,'-').slice(0,19);
             const date=new Date().toLocaleString('en-GB').replace(/[:,/]/g,'-').slice(0,20);            
             const filename=test.title.slice(0,5)+'_'+date +'.png';           
             const scrshotpath='./reports/screenshots/';             
-            return await browser.saveScreenshot(scrshotpath+filename);        
+            browser.saveScreenshot(scrshotpath+filename);        
         }
     },
 
