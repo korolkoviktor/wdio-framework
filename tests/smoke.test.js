@@ -18,7 +18,8 @@ describe('Testsuit: "Hardcore"', ()=> {
     })
     it ('Test2:Check calculating result received by email', async ()=>{           
         await page('calculator').switchtoParentFrame();
-        await page('calculator').switchtoChildFrame();        
+        await page('calculator').switchtoChildFrame();
+        await page('calculator').mainform.productTypeComputerEngine.waitForDisplayed();        
         await page('calculator').mainform.productTypeComputerEngine.click(); //chose Computer Engine form
         await page('calculator').mainform.instances.click(); // Number of instances: 4
         await page('calculator').mainform.instances.setValue('4');
@@ -58,9 +59,10 @@ describe('Testsuit: "Hardcore"', ()=> {
         await page('calculator').switchtoParentFrame();
         await page('calculator').switchtoChildFrame(); 
         await page('calculator').estimate.emailBtn.click();        
-        await page('calculator').estimate.resultForm.waitForDisplayed();            
+        await page('calculator').estimate.resultForm.waitForDisplayed({ timeout: 3000 });
+        await page('calculator').estimate.resultForm.click();                    
         await page('calculator').estimate.emailInputRow.click();        
-        await browser.keys(['Control', 'v']);
+        await browser.keys(['Control', 'v']);        
         await page('calculator').estimate.sendEmailBtn.isClickable();        
         await page('calculator').estimate.sendEmailBtn.click();
         await browser.switchWindow('dropmail.me');

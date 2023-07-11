@@ -8,7 +8,7 @@ class TemporaryEmailComponent extends BaseComponent {
         return $('span.addr-toolbar span.bi-clipboard');
     }
     get inboxMessage() {
-        return $('//div[@class="container"]/div[9]/div[2]/ul/li/div[3]/div[1]/pre');
+        return $('div.col-12 div:nth-child(1) pre');
     }
     
 }

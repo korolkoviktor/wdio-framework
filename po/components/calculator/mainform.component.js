@@ -13,8 +13,8 @@ class CalcMainformComponent extends BaseComponent {
     get childFrame() {
         return '#myFrame';
     }
-    get productTypeComputerEngine() {
-        return $('#tab-item-1 > div');
+    get productTypeComputerEngine() {       
+        return $('#tab-item-1');
     }    
     get instances() {
         return $('#input_97');
