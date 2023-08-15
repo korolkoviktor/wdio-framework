@@ -8,15 +8,16 @@ describe('Testsuit: "Hardcore"', ()=> {
         browser.maximizeWindow(); 
     })
     it ('Test1:Check correct search result', async ()=>{               
+        await page('main').header.searchBox.waitForDisplayed({ timeout: 5000 });
         await page('main').header.searchBox.click();          
-        await page('main').header.searchBox.setValue('Google Cloud Platform Pricing Calculator');        
+        await page('main').header.searchBoxInput.setValue('Google Cloud Platform Pricing Calculator');        
         await page('main').header.popupSearchMenu.waitForDisplayed();        
         await page('main').header.popupSearchMenu.click();        
-        await page('search').searchresult.firstSearchresultLink.waitForDisplayed();       
+        await page('search').searchresult.firstSearchresultLink.waitForDisplayed({ timeout: 5000 });       
         await page('search').searchresult.firstSearchresultLink.click();               
         expect(await browser.getUrl()).toEqual(calculatorUrl);        
     })
-    it ('Test2:Check calculating result received by email', async ()=>{           
+    it ('Test2:Check calculating result received by email', async ()=>{      
         await page('calculator').switchtoParentFrame();
         await page('calculator').switchtoChildFrame();
         await page('calculator').mainform.productTypeComputerEngine.waitForDisplayed();        
@@ -67,6 +68,6 @@ describe('Testsuit: "Hardcore"', ()=> {
         await page('calculator').estimate.sendEmailBtn.click();
         await browser.switchWindow('dropmail.me');
         await page('temporary').email.inboxMessage.waitForDisplayed({ timeout: 10000 });        
-        expect (await page('temporary').email.inboxMessage.getText()).toContain(emailresult);        
+        expect (await page('temporary').email.inboxMessage.getText()).toContain(emailresult);                
     })
 })

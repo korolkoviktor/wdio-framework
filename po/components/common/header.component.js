@@ -2,10 +2,13 @@ const BaseComponent=require("./base.component");
 
 class HeaderComponent extends BaseComponent {
     constructor() {
-        super('.devsite-top-logo-row-middle');
+        super('.devsite-search-form'); 
     }
     get searchBox() {
-        return this.rootEl.$('input');
+        return this.rootEl.$('.devsite-searchbox');
+    }
+    get searchBoxInput() {
+        return this.rootEl.$('.devsite-searchbox input');
     }
     get popupSearchMenu() {
         return this.rootEl.$('.devsite-popout');

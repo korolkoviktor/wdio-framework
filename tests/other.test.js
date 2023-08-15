@@ -8,15 +8,16 @@ describe('Testsuit: "Hurt me plenty"', ()=> {
         browser.maximizeWindow(); 
     })
     it ('Test1:Check correct search result google clouds', async ()=>{               
-        await page('main').header.searchBox.click();          
-        await page('main').header.searchBox.setValue('Google Cloud Platform Pricing Calculator');        
+        await page('main').header.searchBox.waitForDisplayed({ timeout: 10000 });
+        await page('main').header.searchBox.click();                
+        await page('main').header.searchBoxInput.setValue('Google Cloud Platform Pricing Calculator');        
         await page('main').header.popupSearchMenu.waitForDisplayed();        
         await page('main').header.popupSearchMenu.click();        
-        await page('search').searchresult.firstSearchresultLink.waitForDisplayed({ timeout: 5000 });       
+        await page('search').searchresult.firstSearchresultLink.waitForDisplayed({ timeout: 7000 });       
         await page('search').searchresult.firstSearchresultLink.click();               
         expect(await browser.getUrl()).toEqual(calculatorUrl);        
     })
-    it ('Test2:Check calculator', async ()=>{             
+    it ('Test2:Check calculator', async ()=>{                
         await page('calculator').switchtoParentFrame();
         await page('calculator').switchtoChildFrame();        
         await page('calculator').mainform.productTypeComputerEngine.click(); //chose Computer Engine form

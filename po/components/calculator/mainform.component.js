@@ -17,64 +17,64 @@ class CalcMainformComponent extends BaseComponent {
         return $('#tab-item-1');
     }    
     get instances() {
-        return $('#input_97');
+        return $('#input_98');
     }
     get softwareForm() {
-        return $('#select_110');
+        return $('#select_value_label_90'); 
     }
     get software() {
-        return $('#select_option_99');
+        return $('#select_option_100');s
     }
     get virtualmachineForm() {
-        return $('#select_value_label_90');
+        return $('#select_value_label_91');
     }
     get virtualmachine() {
-        return $('#select_option_112');
+        return $('#select_option_113');
     }
     get seriesForm() {
-        return $('#select_value_label_92');
+        return $('#select_value_label_93');
     }
     get series() {
-        return $('#select_option_213');
+        return $('#select_option_214');
     }
     get machineTypeForm() {
-        return $('#select_value_label_93');
+        return $('#select_value_label_94');
     }
     get machineType() {
         return $('md-content > md-optgroup:nth-child(3)');
     }
     get addGPUsChkBoxFirst() {
         return $('//div[@class="compute-engine-block"]/div[1]/form/div[13]/div[1]/md-input-container/md-checkbox')
-    }
-    get numberGPUsForm() {
-        return $('#select_491');
-    }
-    get numberGPUs() {
-        return $('#select_option_499');
-    }
+    }    
     get typeGPUForm() {
-        return $('#select_489');
+        return $('#select_490');
     }
     get typeGPU() {
-        return $('#select_option_496');
+        return $('#select_option_497');
+    }
+    get numberGPUsForm() {
+        return $('#select_492');
+    }
+    get numberGPUs() {
+        return $('#select_option_500');
     }
     get localSSDForm() {
-        return $('#select_value_label_447');
+        return $('#select_value_label_448');
     }
     get localSSD() {
-        return $('#select_option_474');
+        return $('#select_option_475');
     }
     get locationForm() {
-        return $('#select_value_label_95');
-    }
-    get location() {
-        return $('#select_option_255');
-    }
-    get committedUsageForm() {
         return $('#select_value_label_96');
     }
+    get location() {
+        return $('#select_option_256');
+    }
+    get committedUsageForm() {
+        return $('#select_value_label_97');
+    }
     get committedUsage() {
-        return $('#select_option_135');
+        return $('#select_option_136');
     }
     get addToEstimateBtn() {
         return $('//div[@class="compute-engine-block"]/div[1]/form/div[20]/button')
