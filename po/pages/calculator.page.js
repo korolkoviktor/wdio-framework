@@ -11,11 +11,11 @@ class CalculatorPage extends MainPage {
     async switchtoParentFrame() {
         await this.mainform.parentFrameForm.waitForDisplayed({ timeout: 5000 });
         const parentframe=await browser.findElement('css selector', this.mainform.parentFrame);
-        return browser.switchToFrame(parentframe);
+        return await browser.switchToFrame(parentframe);
     }    
     async switchtoChildFrame() { 
         const childframe=await browser.findElement('css selector', this.mainform.childFrame);
-        return browser.switchToFrame(childframe);         
+        return await browser.switchToFrame(childframe);         
     }
     async checkEstimate() {        
         const arr = await (this.estimate.cartItem.map(text => text.getText()));

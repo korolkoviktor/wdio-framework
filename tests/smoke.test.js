@@ -11,8 +11,7 @@ describe('Testsuit: "Hardcore"', ()=> {
         await page('main').header.searchBox.waitForDisplayed({ timeout: 5000 });
         await page('main').header.searchBox.click();          
         await page('main').header.searchBoxInput.setValue('Google Cloud Platform Pricing Calculator');        
-        await page('main').header.popupSearchMenu.waitForDisplayed();        
-        await page('main').header.popupSearchMenu.click();        
+        await browser.keys('Enter');         
         await page('search').searchresult.firstSearchresultLink.waitForDisplayed({ timeout: 5000 });       
         await page('search').searchresult.firstSearchresultLink.click();               
         expect(await browser.getUrl()).toEqual(calculatorUrl);        
