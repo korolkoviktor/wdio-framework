@@ -17,9 +17,9 @@ function page(name) {
     // return items[name.toLowerCase()];
 }
 module.exports={
-    MainPage,
-    SearchresultPage,
-    CalculatorPage,
-    TemporaryEmailPage,
+    // MainPage,
+    // SearchresultPage,
+    // CalculatorPage,
+    // TemporaryEmailPage,
     page,
 };

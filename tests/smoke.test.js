@@ -53,13 +53,13 @@ describe('Testsuit: "Hardcore"', ()=> {
         await page('calculator').mainform.committedUsage.click();
         await page('calculator').mainform.addToEstimateBtn.click();          
         await browser.newWindow('https://dropmail.me');        
-        await page('temporary').email.copyToClipboard.waitForDisplayed({ timeout: 3000 });
+        await page('temporary').email.copyToClipboard.waitForDisplayed({ timeout: 5000 });
         await page('temporary').email.copyToClipboard.click()       
         await browser.switchWindow('google.com');
         await page('calculator').switchtoParentFrame();
         await page('calculator').switchtoChildFrame(); 
         await page('calculator').estimate.emailBtn.click();        
-        await page('calculator').estimate.resultForm.waitForDisplayed({ timeout: 3000 });
+        await page('calculator').estimate.resultForm.waitForDisplayed({ timeout: 5000 });
         await page('calculator').estimate.resultForm.click();                    
         await page('calculator').estimate.emailInputRow.click();        
         await browser.keys(['Control', 'v']);        
