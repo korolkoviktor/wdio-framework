@@ -1,12 +1,12 @@
-const BaseComponent=require('../common/base.component');
+const BaseComponent = require('../common/base.component');
 
 class SearchResultComponent extends BaseComponent {
     constructor() {
         super('.gsc-expansionArea'); 
     }
-    get firstSearchresultLink() {
-        return this.rootEl.$('div:nth-child(1) div.gs-webResult div.gsc-thumbnail-inside div a');
+    get firstSearchResultLink() {
+        return this.rootEl.$(".gsc-thumbnail-inside [href*='calculator']");
     }    
 }
-module.exports=SearchResultComponent;
+module.exports = SearchResultComponent;
 

@@ -1,4 +1,4 @@
-const BaseComponent=require("./base.component");
+const BaseComponent = require("./base.component");
 
 class HeaderComponent extends BaseComponent {
     constructor() {
@@ -11,4 +11,4 @@ class HeaderComponent extends BaseComponent {
         return this.rootEl.$('input');        
     }    
 }
-module.exports=HeaderComponent;
+module.exports = HeaderComponent;

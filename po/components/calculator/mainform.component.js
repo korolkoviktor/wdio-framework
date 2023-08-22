@@ -1,9 +1,9 @@
-const BaseComponent=require('../common/base.component');
+const BaseComponent = require('../common/base.component');
 
 class CalcMainformComponent extends BaseComponent {
     constructor() {
-        super('article#cloud-site'); 
-    }    
+        super('article#cloud-site');
+    }
     get parentFrameForm() {
         return this.rootEl.$('devsite-iframe iframe');
     }
@@ -13,22 +13,22 @@ class CalcMainformComponent extends BaseComponent {
     get childFrame() {
         return '#myFrame';
     }
-    get productTypeComputerEngine() {       
+    get productTypeComputerEngine() {
         return $('#tab-item-1');
-    }    
+    }
     get instances() {
         return $('#input_98');
     }
     get softwareForm() {
-        return $('#select_value_label_90'); 
+        return $('#select_value_label_90');
     }
     get software() {
-        return $('#select_option_100');s
+        return $('#select_option_100'); s
     }
-    get virtualmachineForm() {
+    get virtualMachineForm() {
         return $('#select_value_label_91');
     }
-    get virtualmachine() {
+    get virtualMachine() {
         return $('#select_option_113');
     }
     get seriesForm() {
@@ -43,9 +43,9 @@ class CalcMainformComponent extends BaseComponent {
     get machineType() {
         return $('md-content > md-optgroup:nth-child(3)');
     }
-    get addGPUsChkBoxFirst() {
-        return $('//div[@class="compute-engine-block"]/div[1]/form/div[13]/div[1]/md-input-container/md-checkbox')
-    }    
+    get addGPUsCheckBoxFirst() {        
+        return $('md-checkbox[ng-model="listingCtrl.computeServer.addGPUs"]');    
+    }
     get typeGPUForm() {
         return $('#select_490');
     }
@@ -76,8 +76,8 @@ class CalcMainformComponent extends BaseComponent {
     get committedUsage() {
         return $('#select_option_136');
     }
-    get addToEstimateBtn() {
+    get addToEstimateButton() {
         return $('//div[@class="compute-engine-block"]/div[1]/form/div[20]/button')
-    }    
+    }
 }
-module.exports=CalcMainformComponent;
+module.exports = CalcMainformComponent;

@@ -1,10 +1,10 @@
-const {Searchresult} = require('../components');
-const MainPage=require('./main.page');
+const { SearchResult } = require('../components');
+const MainPage = require('./main.page');
 
-class SearchresultPage extends MainPage {
+class SearchResultPage extends MainPage {
     constructor() {
         super();
-        this.searchresult=new Searchresult;
-    }   
+        this.searchresult = new SearchResult;
+    }
 }
-module.exports=SearchresultPage;
+module.exports = SearchResultPage;

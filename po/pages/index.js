@@ -1,25 +1,20 @@
-const MainPage=require("./main.page");
-const SearchresultPage=require('./searchresult.page');
-const CalculatorPage=require('./calculator.page');
+const MainPage = require("./main.page");
+const SearchResultPage = require('./searchresult.page');
+const CalculatorPage = require('./calculator.page');
 const TemporaryEmailPage = require("./tempemail.page");
 /**
  * @param name {'main'|'searchresult'| 'calculator'| 'temporary'}
- * @returns {MainPage|SearchresultPage|CalculatorPage|TemporaryEmailPage}
+ * @returns {MainPage|SearchResultPage|CalculatorPage|TemporaryEmailPage}
  */
 function page(name) {
-    const items= {
+    const items = {
         main: new MainPage(),
-        search: new SearchresultPage(),
+        search: new SearchResultPage(),
         calculator: new CalculatorPage(),
         temporary: new TemporaryEmailPage(),
     };
-    return items[name];
-    // return items[name.toLowerCase()];
+    return items[name];    
 }
-module.exports={
-    // MainPage,
-    // SearchresultPage,
-    // CalculatorPage,
-    // TemporaryEmailPage,
-    page,
+module.exports = {    
+    page
 };
