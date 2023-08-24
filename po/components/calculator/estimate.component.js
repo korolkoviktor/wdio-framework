@@ -13,8 +13,7 @@ class CalcEstimateComponent extends BaseComponent {
     get resultForm() {
         return $('form.ng-valid-email');
     }
-    get emailInputRow() {
-        // return $("form.ng-valid-email md-content._md div.layout-row:nth-child(3)"); input_511
+    get emailInputRow() {        
         return $("form.ng-valid-email ._md .layout-row:nth-child(3)"); 
     }
     get sendEmailButton() {

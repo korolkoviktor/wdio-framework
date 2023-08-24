@@ -1,3 +1,3 @@
-const emailresult = 'Total *:\n1,081.20\n';
+const emailresult = '1,081.20';
 
 module.exports = emailresult;

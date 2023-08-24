@@ -26,9 +26,18 @@ exports.config = {
         // ToDo: define location for spec files here
         './tests/*.js'
     ],
+    suites: {
+        smoke: [
+            "./tests/smoke.test.js",            
+        ],
+        other: [
+            "./tests/other.test.js",
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
+        // './tests/smoke.test.js' 
     ],
     //
     // ============
@@ -239,9 +248,9 @@ exports.config = {
      */
     afterTest: function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
-            const date=new Date().toLocaleString('en-GB').replace(/[:,/]/g,'-').slice(0,20); 
-            const filename=test.title.slice(0,5)+'_'+date +'.png';           
-            const scrshotpath='./reports/screenshots/';             
+            const date = new Date().toLocaleString('en-GB').replace(/[:,/]/g,'-').slice(0,20); 
+            const filename = test.title.slice(0,5)+'_'+date +'.png';           
+            const scrshotpath = './reports/screenshots/';             
             browser.saveScreenshot(scrshotpath+filename);        
         }
     },

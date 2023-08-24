@@ -6,5 +6,12 @@ class SearchResultPage extends MainPage {
         super();
         this.searchresult = new SearchResult;
     }
+    async clickSearchResult() {
+        await this.searchresult.firstSearchResultLink.waitForDisplayed({ timeout: 7000 });
+        await this.searchresult.firstSearchResultLink.click();        
+    }
+    searchResultUrl() {        
+        return browser.getUrl();
+    } 
 }
 module.exports = SearchResultPage;
